@@ -109,7 +109,7 @@ Form comes with built in security and validation such as wp_nonce verification a
 				)
 			);
 
-			$form = new Form( 'Test Form', $fields, 'Contact Us' );`
+			$form = new Form( 'Test Form', $fields, 'Sign Up' );`
 
 	C. Form is set to `method = 'POST'`
 
