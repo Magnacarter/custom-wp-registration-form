@@ -168,7 +168,7 @@ class Form {
 
 		//Check to see if user is logged in
 		if ( is_user_logged_in() ) {
-			wp_die( 'You are already a logged in as a user.' );
+			wp_die( 'You are already logged in as a user.' );
 		} else {
 			//Validate email if it exists
 			foreach ($_POST as $key => $value) {
