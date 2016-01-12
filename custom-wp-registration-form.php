@@ -268,6 +268,8 @@ class Form {
  * Hook our methods into WordPress
  *
  * @add_action wp
+ * @add_action show_user_profile
+ * @add_action edit_user_profile
  */
 $form = new Form;
 add_action( 'wp', array( $form, 'process_form' ) );
