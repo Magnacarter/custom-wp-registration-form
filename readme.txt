@@ -11,9 +11,11 @@ Create a custom user registration form with an array. Comes with wp_nonce verifi
 
 == Description ==
 
-Create a custom user registration form with an associative array. Use HTML form element attributes as array keys to create a form. 
+Create a custom user registration form with an associative array. Use HTML form element attributes as array keys to create a form. Any custom input values are automatically added to new area of a user's profile page in the WordPress admin. Array containing values that match WordPress user meta syntax will have those input values automatically added to those premade values in the default WordPress profile page. 
 
 Form comes with built in security and validation such as wp_nonce verification and spam honey pot.
+
+Array can currently take form types: text, email, file, radio, select, and textarea. More coming soon... also, always welcome pull requests. 
 
 == Installation ==
 
@@ -27,6 +29,8 @@ Form comes with built in security and validation such as wp_nonce verification a
 
 		Example : `$form = new Form( $form_name, $fields, $submit_text );`
 	B. Build the array. Here is an example of a form array and then passing it to the form object. 
+		1. assign classes and ID's to retain full style control of all inputs. 
+		2. each input field and textarea is wrapped in a `<div class="your-class">`. ID's are assigned to the input and textarea tags themselves.
 
 			`$fields = array(
 				'First Name' => array(
@@ -111,7 +115,9 @@ Form comes with built in security and validation such as wp_nonce verification a
 
 			$form = new Form( 'Test Form', $fields, 'Sign Up' );`
 
-	C. Form is set to `method = 'POST'`
+	C. Note that the array values match the WordPress syntax for insertion to the default WordPress profile page in the admin panel. When you don't use this syntax, values will be added below the premade profile meta section. 
+
+	D. Form is set to `method = 'POST'`
 
 
 
