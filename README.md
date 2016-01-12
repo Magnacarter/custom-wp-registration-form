@@ -1,13 +1,13 @@
 === Custom WP Registration Form ===
 Contributors: adamcarter
-Tags: registration, form, secure form, custom form
+Tags: registration, registration form, secure, custom, WordPress plugin
 Requires at least: 3.0.1
 Tested up to: 4.4.1
 Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create a custom user registration form with an array. Comes with wp_nonce verification, spam honey pot and various form validation features built in. 
+Create a custom user WordPress registration form with an array. Comes with wp_nonce verification, spam honey pot and various form validation features built in. Plugin adds user input fields to the default WordPress profile page.
 
 == Description ==
 
