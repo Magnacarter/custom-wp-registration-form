@@ -54,9 +54,9 @@ class Form {
 
 		?>
 
-			<form name="<?php echo $this->form_name ?>" method="POST">
+			<form name="<?php echo esc_attr( $this->form_name ) ?>" method="POST">
 				<div class="form-title">
-					<h2><?php echo $this->form_name ?></h2>
+					<h2><?php echo esc_html( $this->form_name )?></h2>
 				</div>
 
 				<?php
@@ -86,7 +86,7 @@ class Form {
 
 						case 'file':
 							?>
-								<div class="<?php echo $class ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
 							<?php 
 							$input = sprintf('<input type="%s" name="%s" accept="%s">', $type, $name, $accept );
 							echo $input;
@@ -97,7 +97,7 @@ class Form {
 
 						case 'select':
 							?>
-								<div class="<?php echo $class ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
 							<?php
 							$values[] = sprintf( '<p><select name="%s" id="%s">', $name, $id );
 							foreach( $options as $select ) {
@@ -110,7 +110,7 @@ class Form {
 
 						case 'radio':
 							?>
-								<div class="<?php echo $class ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
 							<?php
 							$buttons = array();	
 							foreach ( $value as $input ) {
@@ -135,7 +135,7 @@ class Form {
 				<div class=""></div>
 				<div class="">
 					<p>
-						<button type="submit" id="submit-registration"><?php echo $this->submit_text ?></button>
+						<button type="submit" id="submit-registration"><?php echo esc_html( $this->submit_text ) ?></button>
 					</p>
 				</div>
 			</form>
@@ -171,9 +171,13 @@ class Form {
 			wp_die( 'You are already logged in as a user.' );
 		} else {
 			//Validate email if it exists
-			foreach ($_POST as $key => $value) {
+			foreach ( $_POST as $key => $value ) {
 				if ( false !== is_email( $value ) && email_exists( $value ) !== false ) {
 					wp_die( 'That email address is associated with another user.' );
+				} 
+				if ( false !== is_email( $value ) ) {
+					$clean_email = sanitize_email( $value );
+					$user_data[ $key ] = $clean_email;
 				} elseif ( $key !== 'pot' && empty( $value ) ) {
 					wp_die( 'Please enter a value for the <i><b>' . ucwords( str_replace( '_', ' ', $key ) ) . '</b></i> field.' );
 				} else {
