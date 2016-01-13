@@ -70,25 +70,61 @@ class Form {
 					}
 					switch( $type ) {
 						case 'text': 
-							$input = sprintf( '<div class="%s"><p><input type="%s" name="%s" id="%s" minlength="%d" maxlength="%d" placeholder="%s" ' . $req . '></p></div>', $class, $type, $name, $id, $minlength, $maxlength, $placeholder );
+							$input = sprintf( '<div class="%s"><p><input type="%s" name="%s" id="%s" minlength="%d" maxlength="%d" placeholder="%s" ' . $req . '></p></div>', 
+								esc_attr( $class ), 
+								esc_attr( $type ), 
+								esc_attr( $name ), 
+								esc_attr( $id ), 
+								$minlength, 
+								$maxlength, 
+								esc_attr( $placeholder ) 
+							);
+							echo $input;
+							break;
+
+						case 'password': 
+							$input = sprintf( '<div class="%s"><p><input type="%s" name="%s" id="%s" minlength="%d" maxlength="%d" placeholder="%s" ' . $req . '></p></div>', 
+								esc_attr( $class ), 
+								esc_attr( $type ), 
+								esc_attr( $name ), 
+								esc_attr( $id ), 
+								$minlength, 
+								$maxlength, 
+								esc_attr( $placeholder )
+							 );
 							echo $input;
 							break;
 
 						case 'email':
-							$input = sprintf( '<div class="%s"><p><input type="%s" name="%s" id="%s" minlength="%d" maxlength="%d" placeholder="%s" ' . $req . '></p></div>', $class, $type, $name, $id, $minlength, $maxlength, $placeholder );
+							$input = sprintf( '<div class="%s"><p><input type="%s" name="%s" id="%s" minlength="%d" maxlength="%d" placeholder="%s" ' . $req . '></p></div>', 
+								esc_attr( $class ), 
+								esc_attr( $type ), 
+								esc_attr( $name ), 
+								esc_attr( $id ), 
+								$minlength, 
+								$maxlength, 
+								esc_attr( $placeholder ) 
+							);
 							echo $input;
 							break;
 
 						case 'textarea':
-							$input = sprintf( '<div class="%s"><p><textarea name="%s" id="%s" rows="%d" cols="%d" placeholder="%s" ' . $req . '></textarea></p></div>', $class, $name, $id, $rows, $cols, $placeholder );
+							$input = sprintf( '<div class="%s"><p><textarea name="%s" id="%s" rows="%d" cols="%d" placeholder="%s" ' . $req . '></textarea></p></div>', 
+								esc_attr( $class ), 
+								esc_attr( $name ), 
+								esc_attr( $id ), 
+								$rows, 
+								$cols, 
+								esc_attr( $placeholder ) 
+							);
 							echo $input;
 							break;
 
 						case 'file':
 							?>
-								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', esc_html( $name ) ) ) ?></Label>
 							<?php 
-							$input = sprintf('<input type="%s" name="%s" accept="%s">', $type, $name, $accept );
+							$input = sprintf('<input type="%s" name="%s" accept="%s">', esc_attr( $type ), esc_attr( $name ), esc_attr( $accept ) );
 							echo $input;
 							?>
 							</div>
@@ -97,9 +133,9 @@ class Form {
 
 						case 'select':
 							?>
-								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', esc_html( $name ) ) ) ?></Label>
 							<?php
-							$values[] = sprintf( '<p><select name="%s" id="%s">', $name, $id );
+							$values[] = sprintf( '<p><select name="%s" id="%s">', esc_attr( $name ), esc_attr( $id ) );
 							foreach( $options as $select ) {
 								$values[] .= sprintf('<option value="%s">%1$s</option>', $select );	
 							}
@@ -110,11 +146,16 @@ class Form {
 
 						case 'radio':
 							?>
-								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo esc_attr( $class ) ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', esc_html( $name ) ) ) ?></Label>
 							<?php
 							$buttons = array();	
 							foreach ( $value as $input ) {
-								$buttons[] .= sprintf( '<p><input type="%s" name="%s" id="%s" value="%s"> %4$s</p>', $type, $name, $id, ucwords( str_replace( '_', ' ', $input ) ) );
+								$buttons[] .= sprintf( '<p><input type="%s" name="%s" id="%s" value="%s"> %4$s</p>', 
+									esc_attr( $type ), 
+									esc_attr( $name ), 
+									esc_attr( $id ), 
+									ucwords( str_replace( '_', ' ', esc_html( $input ) ) ) 
+									);
 								}
 							$output = implode( ',', $buttons );	
 							print_r( str_replace( ',', ' ', $output ) );
@@ -132,8 +173,6 @@ class Form {
 				<input id="test" type="text" name="pot" value="" style="display:none;">
 
 				<?php wp_nonce_field( 'user_registration-' . $registration_token, 'registration_nonce' ) ?>
-				<div class=""></div>
-				<div class="">
 					<p>
 						<button type="submit" id="submit-registration"><?php echo esc_html( $this->submit_text ) ?></button>
 					</p>
