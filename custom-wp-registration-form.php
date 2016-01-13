@@ -55,7 +55,7 @@ class Form {
 		?>
 
 			<form name="<?php echo $this->form_name ?>" method="POST">
-				<div class="form-title" style="padding-left:15px;">
+				<div class="form-title">
 					<h2><?php echo $this->form_name ?></h2>
 				</div>
 
@@ -86,7 +86,7 @@ class Form {
 
 						case 'file':
 							?>
-							<div class="<?php echo $class ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
+								<div class="<?php echo $class ?>"><Label for="<?php echo $name ?>"><?php echo ucwords( str_replace( '_', ' ', $name ) ) ?></Label>
 							<?php 
 							$input = sprintf('<input type="%s" name="%s" accept="%s">', $type, $name, $accept );
 							echo $input;
@@ -132,8 +132,8 @@ class Form {
 				<input id="test" type="text" name="pot" value="" style="display:none;">
 
 				<?php wp_nonce_field( 'user_registration-' . $registration_token, 'registration_nonce' ) ?>
-				<div class="clearfix"></div>
-				<div class="col-lg-6">
+				<div class=""></div>
+				<div class="">
 					<p>
 						<button type="submit" id="submit-registration"><?php echo $this->submit_text ?></button>
 					</p>
