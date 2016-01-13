@@ -17,7 +17,7 @@ License:     GPLv2+
  * Uses a PHP callback to validate escape and sanitize user inputs before
  * adding them to the database.
  */
-class Form {
+class CWRF_Form {
 	public $form_name;
 	public $method;
 	public $submit_text;
@@ -45,7 +45,7 @@ class Form {
 	 * @param array $fields Pass this method an associative array 
 	 * contain attributes for the input element
 	 */
-	function build_form( $fields ) {
+	function cwrf_build_form( $fields ) {
 		//build_form runs in construct with an empty $fields and runs again w/ a set $fields array
 		//This stops build_form from firing if the $fields array is empty
 		if ( empty( $fields ) ) {
@@ -187,7 +187,7 @@ class Form {
 	 * 
 	 * @return void
 	 */
-	public function process_form() {
+	public function cwrf_process_form() {
 		//Check to see if 'POST' exists and verify nonce.
 		if ( 
 			'POST' !== $_SERVER['REQUEST_METHOD']
@@ -271,7 +271,7 @@ class Form {
  	 *
      * @param object $user is WP_User object. Gets passed at hook 
      */
-    public function user_details( $user ) {
+    public function cwrf_user_details( $user ) {
 
   		$all_meta = array_map( function( $a ){ return $a[0]; }, get_user_meta( $user->ID ) );
 
@@ -322,6 +322,6 @@ class Form {
  * @add_action edit_user_profile
  */
 $form = new Form;
-add_action( 'wp', array( $form, 'process_form' ) );
-add_action( 'show_user_profile', array( $form, 'user_details' ), 999 );
-add_action( 'edit_user_profile', array( $form, 'user_details' ), 999 );
+add_action( 'wp', array( $form, 'cwrf_process_form' ) );
+add_action( 'show_user_profile', array( $form, 'cwrf_user_details' ), 999 );
+add_action( 'edit_user_profile', array( $form, 'cwrf_user_details' ), 999 );

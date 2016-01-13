@@ -15,7 +15,7 @@ Create a custom user registration form with an associative array. Use HTML form 
 
 Custom WP Registration Form comes with built in security and validation such as wp_nonce_field verification and spam honey pot. It also automatically escapes attributes and html outputs and sanitizes user input values. 
 
-User must create a "Form" array. This array will need to be passed as an argument to the a new 'form' object. The Form array can currently take HTML form types: text, email, file, radio, select, and textarea as values to the key 'type'. More coming soon... also, I always welcome pull requests. 
+User must create a "CWRF Form" array. This array will need to be passed as an argument to the a new 'form' object. The CWRF Form array can currently take HTML form types: text, email, file, radio, select, and textarea as values to the key 'type'. More coming soon... also, I always welcome pull requests.
 
 == Installation ==
 
