@@ -209,14 +209,16 @@ class Form {
 		if ( is_user_logged_in() ) {
 			wp_die( 'You are already logged in as a user.' );
 		} else {
-			//Validate email if it exists
 			foreach ( $_POST as $key => $value ) {
+				//Validate email if it exists
 				if ( false !== is_email( $value ) && email_exists( $value ) !== false ) {
 					wp_die( 'That email address is associated with another user.' );
 				} 
+				//Sanitize email
 				if ( false !== is_email( $value ) ) {
 					$clean_email = sanitize_email( $value );
 					$user_data[ $key ] = $clean_email;
+				//Make sure value exists and sanitize it
 				} elseif ( $key !== 'pot' && empty( $value ) ) {
 					wp_die( 'Please enter a value for the <i><b>' . ucwords( str_replace( '_', ' ', $key ) ) . '</b></i> field.' );
 				} else {
