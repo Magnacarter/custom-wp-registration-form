@@ -296,8 +296,8 @@ class Form {
 	    	foreach ( $custom_meta as $key => $value ) {
 	    		?>
 	    		<tr>
-	    			<th><label><?php echo ucwords( str_replace( '_', ' ', $key ) ) ?></label></th>
-	    			<td><input type="text" value="<?php echo $value ?>" class="regular-text"/></td>
+	    			<th><label><?php echo esc_html( ucwords( str_replace( '_', ' ', $key ) ) ) ?></label></th>
+	    			<td><input type="text" value="<?php echo ecc_attr( $value ) ?>" class="regular-text"/></td>
 	        	</tr>
 	        	<?php
 	        }
