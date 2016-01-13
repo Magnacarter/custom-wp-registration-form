@@ -232,7 +232,12 @@ class Form {
 			extract( $user_data );
 
 			//Create new WP user and return new ID
-			$user_meta_fields = array_diff_key( $user_data, array( 'registration_nonce' => null, '_wp_http_referer' => null, 'registration_token' => null, 'pot' => null ) );
+			$user_meta_fields = array_diff_key( $user_data, array( 
+				'registration_nonce' => null, 
+				'_wp_http_referer'   => null, 
+				'registration_token' => null, 
+				'pot'                => null 
+			) );
 
 			$user_id = wp_insert_user( $user_meta_fields );
 
@@ -274,20 +279,20 @@ class Form {
     	//because they have been added in the premade fields or aren't relevant
     	//The values in this array are irrelevant
     	$custom_meta = array_diff_key( $all_meta, array(
-    	 'nickname'             => null, 
-    	 'first_name'           => null, 
-    	 'last_name'            => null, 
-    	 'user_email'           => null, 
-    	 'user_pass'            => null, 
-    	 'user_login'           => null, 
-    	 'test_user_level'      => null, 
-    	 'test_capabilities'    => null, 
-    	 'show_admin_bar_front' => null, 
-    	 'use_ssl'              => null, 
-    	 'admin_color'          => null, 
-    	 'comment_shortcuts'    => null, 
-    	 'rich_editing'         => null,
-    	 'description'          => null 
+			'nickname'             => null, 
+			'first_name'           => null, 
+			'last_name'            => null, 
+			'user_email'           => null, 
+			'user_pass'            => null, 
+			'user_login'           => null, 
+			'test_user_level'      => null, 
+			'test_capabilities'    => null, 
+			'show_admin_bar_front' => null, 
+			'use_ssl'              => null, 
+			'admin_color'          => null, 
+			'comment_shortcuts'    => null, 
+			'rich_editing'         => null,
+			'description'          => null 
     	 ) );
 
     	 ?>
