@@ -113,7 +113,7 @@ User must create a "CWRF Form" array. This array will need to be passed as an ar
 				)
 			);
 
-			$form = new Form( 'Test Form', $fields, 'Sign Up' );`
+			$form = new CWRF_Form( 'Test Form', $fields, 'Sign Up' );`
 
 	C. Note that the array values match the WordPress syntax for insertion to the default WordPress profile page in the admin panel. When you don't use this syntax, values will be added below the premade profile meta section. 
 
