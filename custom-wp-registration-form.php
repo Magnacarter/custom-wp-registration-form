@@ -297,7 +297,7 @@ class Form {
 	    		?>
 	    		<tr>
 	    			<th><label><?php echo esc_html( ucwords( str_replace( '_', ' ', $key ) ) ) ?></label></th>
-	    			<td><input type="text" value="<?php echo ecc_attr( $value ) ?>" class="regular-text"/></td>
+	    			<td><input type="text" value="<?php echo $value ?>" class="regular-text"/></td>
 	        	</tr>
 	        	<?php
 	        }
