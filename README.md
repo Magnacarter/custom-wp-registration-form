@@ -17,6 +17,8 @@ Custom WP Registration Form comes with built in security and validation such as 
 
 User must create a "CWRF Form" array. This array will need to be passed as an argument to the a new 'CWRF_Form' object. The CWRF Form array can currently take HTML form types: text, email, file, radio, select, and textarea as values to the key 'type'. More coming soon... also, I always welcome pull requests. 
 
+**Development of this plugin is done [on GitHub](https://github.com/Magnacarter/custom-wp-registration-form). Pull requests welcome. Please see [issues](https://github.com/Magnacarter/custom-wp-registration-form/issues) reported there before going to the plugin forum.**
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/custom-wp-registration-form` directory, or install the plugin through the WordPress plugins screen directly.
