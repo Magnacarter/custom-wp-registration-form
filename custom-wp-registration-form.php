@@ -36,7 +36,7 @@ class CWRF_Form {
 		$this->form_name   = $form_name;
 		$this->fields      = $fields;
 		$this->submit_text = $submit_text;
-		$this->build_form( $fields );
+		$this->cwrf_build_form( $fields );
 	}
 
 	/**
@@ -321,7 +321,7 @@ class CWRF_Form {
  * @add_action show_user_profile
  * @add_action edit_user_profile
  */
-$form = new Form;
+$form = new CWRF_Form;
 add_action( 'wp', array( $form, 'cwrf_process_form' ) );
 add_action( 'show_user_profile', array( $form, 'cwrf_user_details' ), 999 );
 add_action( 'edit_user_profile', array( $form, 'cwrf_user_details' ), 999 );
