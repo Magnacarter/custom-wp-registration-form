@@ -7,28 +7,28 @@ Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create a custom user WordPress registration form with an array. Comes with wp_nonce verification, spam honey pot and various form validation features built in. Plugin adds user input fields to the default WordPress profile page.
+Create a custom WordPress registration form with an array that automatically logs in user. Define your own input types, attributes, classes & ID's.
 
 == Description ==
 
-Create a custom user registration form with an associative array. Use HTML form element attributes as array keys to create a form. Any custom input values are automatically added to new area of a user's profile page in the WordPress admin. Array containing values that match WordPress user meta syntax will have those input values automatically added to those premade values in the default WordPress profile page. 
+Create a custom user registration form with an associative array. Use HTML form element attributes as array keys to create a form. Any custom array values are automatically added to new area of a user's profile page in the WordPress admin. Arrays containing values that match WordPress user meta syntax will have those input values automatically added to those premade values in the default WordPress profile page. 
 
 Custom WP Registration Form comes with built in security and validation such as wp_nonce_field verification and spam honey pot. It also automatically escapes attributes and html outputs and sanitizes user input values. 
 
-User must create a "CWRF Form" array. This array will need to be passed as an argument to the a new 'form' object. The CWRF Form array can currently take HTML form types: text, email, file, radio, select, and textarea as values to the key 'type'. More coming soon... also, I always welcome pull requests.
+User must create a "CWRF Form" array. This array will need to be passed as an argument to the a new 'CWRF_Form' object. The CWRF Form array can currently take HTML form types: text, email, file, radio, select, and textarea as values to the key 'type'. More coming soon... also, I always welcome pull requests. 
 
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/custom-wp-registration-form` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Create a form object in a .php file where you would like the form to appear. Example: page-contact.php
-	A. the form object takes three arguments
+3. Create a form object in a .php file where you would like the form to appear. Example: page-register.php
+	A. the CWRF_Form object takes three arguments
 		1. string `$form_name` - default is "".
 		2. array `$fields` - pass your array of input fields 
 		3. string `$submit_text` - This is the text that appears on the submit button. Default is 'Submit'.
 
-		Example : `$form = new Form( $form_name, $fields, $submit_text );`
-	B. Build the array. Here is an example of a form array and then passing it to the form object. 
+		Example : `$form = new CWRF_Form( $form_name, $fields, $submit_text );`
+	B. Build the array. Here is the array used to build the form in the screenshots section.
 		1. assign classes and ID's to retain full style control of all inputs. 
 		2. each input field and textarea is wrapped in a `<div class="your-class">`. ID's are assigned to the input and textarea tags themselves.
 
@@ -119,17 +119,20 @@ User must create a "CWRF Form" array. This array will need to be passed as an ar
 
 			$form = new CWRF_Form( 'Test Form', $fields, 'Sign Up!' );`
 
-	C. Note that the array values match the WordPress syntax for insertion to the default WordPress profile page in the admin panel. When you don't use this syntax, values will be added below the premade profile meta section. 
+	C. Note, the array values that match the WordPress syntax for insertion to the default WordPress profile page in the admin panel. When you don't use this syntax, values will be added below the premade profile meta section. Refer to screenshots to see how this form is rendered in the default WordPress user profile page.
 
 	D. Form is set to `method = 'POST'`
 
-
-
-== Frequently Asked Questions ==
-
 == Screenshots ==
+
+1. Form the example array in the docs renders.
+2. Example of predefined user fields rendered in the default user WordPress profile.
+3. Example of custom user fields rendered in the default user WordPress profile.
 
 == Changelog ==
 
-= 1.0.0 =
-Initial Release
+= 1.0.0 - January 14, 20116 =
+
+Initial release!
+
+Props [Magnacarter](https://github.com/Magnacarter)
