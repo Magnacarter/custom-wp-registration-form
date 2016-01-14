@@ -7,7 +7,7 @@ Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create a custom WordPress registration form with an array that automatically logs in user. Define your own input types, attributes, classes & ID's.
+Create a custom WordPress registration form with an array that automatically logs in user. Define your own input types, attributes, classes & IDs
 
 == Description ==
 
