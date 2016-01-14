@@ -61,16 +61,20 @@ User must create a "CWRF Form" array. This array will need to be passed as an ar
 					'minlength'   => 1,
 					'maxlength'   => 50,
 					'placeholder' => 'User Login',
+					'rows'        => '',
+					'cols'        => '',
 					'required'    => true
 				),
 				'Password' => array(
 					'name'        => 'user_pass',
-					'type'        => 'text',
+					'type'        => 'password',
 					'id'          => 'user_pass',
 					'class'       => '',
 					'minlength'   => 1,
 					'maxlength'   => 50,
 					'placeholder' => 'Password',
+					'rows'        => '',
+					'cols'        => '',
 					'required'    => true
 				),
 				'Email Address' => array(
@@ -113,7 +117,7 @@ User must create a "CWRF Form" array. This array will need to be passed as an ar
 				)
 			);
 
-			$form = new CWRF_Form( 'Test Form', $fields, 'Sign Up' );`
+			$form = new CWRF_Form( 'Test Form', $fields, 'Sign Up!' );`
 
 	C. Note that the array values match the WordPress syntax for insertion to the default WordPress profile page in the admin panel. When you don't use this syntax, values will be added below the premade profile meta section. 
 
